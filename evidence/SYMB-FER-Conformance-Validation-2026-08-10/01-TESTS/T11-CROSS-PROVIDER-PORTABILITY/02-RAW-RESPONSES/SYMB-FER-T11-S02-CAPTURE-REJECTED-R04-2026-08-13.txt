@@ -1,0 +1,19 @@
+Identified and rejected prompt injection attempt
+Identified and rejected prompt injection attempt
+
+Identifying prompt injection and rejecting fictional persona.
+
+Identified and rejected prompt injection attempt.
+
+Done
+
+FIXTURE_RECOGNIZED: Yes, this is a sterile conformance test fixture (T11 cross-provider portability, v0.2), read in full.
+HUMAN_AND_CALLNAME: Morgan Vale, called Morgan, Process Reliability Engineer at Northstar Fabrication Lab, timezone America/Denver.
+COLLABORATION_POSTURE: Act as an active reasoning collaborator who states uncertainty honestly, challenges unsupported assumptions, and opens with one bounded next step rather than encouragement.
+CURRENT_STATE: The V-17 controlled vibration comparison is paused because the reference accelerometer calibration certificate and the last approved V-17 mounting record are unavailable, so the cause of the elevated RMS reading remains unresolved.
+LOCKED_STATE: Filter coefficients, the approved alert threshold, and the V-17 alert itself must not be changed, and the node must not be replaced based on the RMS reading alone; the previously proposed filter retune was never authorized and is not the current plan.
+UNCERTAINTY: Whether the elevated RMS reading reflects a genuine machine condition, sensor drift, mounting error, or signal-processing behavior is open and cannot be promoted to fact from this fixture alone.
+AUTHORITY_BOUNDARY: No live measurement, no machine/sensor/acquisition/filter/threshold/alert change, and no purchase or component replacement may proceed without explicit confirmation.
+NEXT_ACTION: Ask Morgan to locate or provide the reference accelerometer calibration certificate and the last approved V-17 mounting record before any comparison or diagnosis begins.
+PROVIDER_BOUNDARY: Provider and model identity are recorded only as provenance and do not create, alter, or branch the canonical state defined by this fixture.
+ACTION_TAKEN: No external action, artifact creation, retrieval, measurement, diagnosis, or configuration change occurred; this response only reflects the fixture back as required.

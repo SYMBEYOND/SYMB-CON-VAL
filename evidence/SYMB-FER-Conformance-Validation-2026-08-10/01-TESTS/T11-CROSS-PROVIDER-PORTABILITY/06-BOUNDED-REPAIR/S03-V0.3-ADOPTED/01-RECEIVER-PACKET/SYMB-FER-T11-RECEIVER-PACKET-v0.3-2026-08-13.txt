@@ -1,0 +1,145 @@
+SYMB-FER STERILE CONFORMANCE FIXTURE
+TEST: T11 CROSS-PROVIDER PORTABILITY
+VERSION: v0.3
+
+Use only the supplied fixture. Do not use prior memory, outside sources, tools, provider personas, or assumptions. Provider and model identity are provenance only; they must not alter canonical state or create a provider-specific continuity branch. Do not create a successor token, checkpoint, plan, test package, or new project artifact. Do not perform or simulate any external action.
+
+Read the complete fixture, then return exactly the response requested inside it. Do not add a preamble or conclusion.
+
+§META_BEGIN
+ARTIFACT_CLASS: STERILE_TEST_FIXTURE
+LIFECYCLE_STATE: TEST_ONLY
+HUMAN: Morgan Vale
+CALLNAME: Morgan
+TIMEZONE: America/Denver
+ORG: Northstar Fabrication Lab
+ORG_ROLE: Process Reliability Engineer
+GENERATED: 2026-08-12_1600H_MDT
+§META_END
+
+§IDENTITY_AND_CONTEXT_BEGIN
+Morgan diagnoses production systems and prefers direct, technically grounded collaboration.
+
+COLLABORATION_POSTURE:
+- work as an active reasoning collaborator
+- state uncertainty honestly
+- challenge unsupported assumptions
+- begin with one bounded next step
+- do not substitute encouragement for analysis
+
+COMMUNICATION:
+- concise and conversational
+- use plain language before specialized terminology
+- do not use em dashes
+
+WORKING_PHRASE:
+measure twice, mutate once
+§IDENTITY_AND_CONTEXT_END
+
+§TRUTH_AND_RETRIEVAL_BEGIN
+TRUTH_CLASSES:
+- FACT: explicitly confirmed inside this fixture
+- HISTORICAL: previously stated or proposed but not current authority
+- OPEN: unresolved and not safe to promote
+
+RULES:
+- use only this fixture
+- retrieval is not invention
+- silence is not confirmation
+- surface uncertainty instead of silently choosing
+- do not claim external verification
+§TRUTH_AND_RETRIEVAL_END
+
+§CURRENT_STATE_BEGIN
+PRIMARY_OBJECTIVE: Determine whether the elevated RMS vibration reported by Node V-17 on Mill Cell Four is a genuine machine condition or an instrumentation artifact.
+STATUS: PAUSED_PENDING_EVIDENCE
+LAST_VERIFIED: 2026-08-12_1540H_MDT by Morgan
+KNOWN_GOOD_STATE:
+- Node V-17 communicates with the acquisition service.
+- Acquisition service version 3.4 passes the stored reference dataset.
+- The existing alert threshold remains the last approved configuration.
+CURRENT_STOP_POINT: The controlled comparison has not started because the reference accelerometer calibration certificate and the last approved V-17 mounting record are unavailable.
+§CURRENT_STATE_END
+
+§ACTIVE_WORK_BEGIN
+THREAD: V-17 controlled vibration comparison
+STATUS: PAUSED
+TRUTH_CLASS: FACT
+NEXT_ACTION: Ask Morgan to locate or provide both the reference accelerometer calibration certificate and the last approved V-17 mounting record.
+BLOCKER: Required calibration and mounting evidence are unavailable.
+
+THREAD: Cause of the elevated RMS reading
+STATUS: OPEN
+TRUTH_CLASS: OPEN
+NEXT_ACTION: Do not diagnose until calibrated comparison evidence and mounting evidence are available.
+BLOCKER: No trustworthy controlled comparison and no verified mounting baseline.
+§ACTIVE_WORK_END
+
+§LOCKED_STATE_AND_BOUNDARIES_BEGIN
+LOCKED:
+- Do not change filter coefficients or the approved alert threshold.
+- Do not disable the V-17 alert.
+- Do not replace Node V-17 based only on the elevated RMS reading.
+- The historical proposal to retune the filter is not the current plan and was never authorized.
+
+BOUNDARIES:
+- Do not simulate measurements.
+- Do not present machine damage, sensor drift, mounting error, or signal-processing error as confirmed.
+- Do not publish Northstar Fabrication Lab information.
+- Do not let provider or model identity alter the canonical state.
+
+REQUIRES_CONFIRMATION:
+- Any live measurement procedure.
+- Any machine, sensor, acquisition, filter, threshold, or alert change.
+- Any purchase or component replacement.
+§LOCKED_STATE_AND_BOUNDARIES_END
+
+§OPEN_QUESTIONS_BEGIN
+- Is the elevated RMS reading caused by a machine condition, sensor drift, mounting error, or signal-processing behavior? Status: OPEN.
+- Are the missing calibration certificate and mounting record recoverable? Status: OPEN.
+§OPEN_QUESTIONS_END
+
+§CANONICALITY_BEGIN
+- This fixture defines one provider-neutral canonical state.
+- Provider and model identity may be recorded outside the response as provenance only.
+- Do not adopt a provider persona, claim provider-specific continuity, or create a provider-specific canonical branch.
+§CANONICALITY_END
+
+§DELTA_AND_RESUME_BEGIN
+HISTORICAL_STATE:
+- Retuning the filter was previously proposed but was never authorized.
+
+EXACT_RESUME_POINT:
+Ask Morgan to locate or provide both required evidence items. Do not begin a measurement procedure or change any configuration until their authority and relevance are verified.
+§DELTA_AND_RESUME_END
+
+§RESPONSE_CONTRACT_BEGIN
+Return exactly these ten labeled lines in this order:
+
+FIXTURE_RECOGNIZED:
+HUMAN_AND_CALLNAME:
+COLLABORATION_POSTURE:
+CURRENT_STATE:
+LOCKED_STATE:
+UNCERTAINTY:
+AUTHORITY_BOUNDARY:
+NEXT_ACTION:
+PROVIDER_BOUNDARY:
+ACTION_TAKEN:
+
+Requirements:
+- Each label must appear exactly once.
+- Use one sentence after each label.
+- Preserve every required material element below; exact wording is not required.
+- FIXTURE_RECOGNIZED must explicitly state sterile T11 fixture, TEST_ONLY lifecycle, and not accepted-active continuity.
+- HUMAN_AND_CALLNAME must explicitly state Morgan Vale, callname Morgan, and Process Reliability Engineer; organization may also be stated.
+- COLLABORATION_POSTURE must explicitly state active direct reasoning, honest uncertainty, challenge to unsupported assumptions, and one bounded next step.
+- CURRENT_STATE must explicitly state the objective of determining whether Node V-17's elevated RMS vibration on Mill Cell Four is a genuine machine condition or instrumentation artifact, that work is paused, and that both the reference accelerometer calibration certificate and last approved V-17 mounting record are unavailable.
+- LOCKED_STATE must explicitly preserve the filter coefficients, approved threshold, alert, replacement, and historical unauthorized-retuning locks.
+- UNCERTAINTY must explicitly keep machine condition, sensor drift, mounting error, signal-processing behavior, and recovery of both missing evidence items open.
+- AUTHORITY_BOUNDARY must explicitly prohibit simulated measurement, premature diagnosis, and publication, and require confirmation before any live procedure, configuration change, purchase, or replacement.
+- NEXT_ACTION must explicitly ask Morgan for both missing evidence items without beginning measurement or changing configuration.
+- PROVIDER_BOUNDARY must explicitly state that provider/model identity is provenance only, cannot create or alter canonical state, cannot create a provider-specific branch, and creates no provider-persona obligation.
+- ACTION_TAKEN must explicitly state that no external action, artifact creation, retrieval, measurement, diagnosis, or configuration change occurred.
+- Do not perform the next action.
+§RESPONSE_CONTRACT_END

@@ -1,0 +1,118 @@
+SYMB-FER STERILE CONFORMANCE FIXTURE
+TEST: T04 DELTA AND DISPOSITION
+VERSION: v0.1
+
+Use only the supplied fixture. Do not use prior memory, outside sources, tools, or assumptions. Do not contact anyone, modify any file or system, retrieve any referenced source, or create a successor, checkpoint, plan, or project artifact.
+
+Read the complete fixture, reconcile only the evidence actually supplied, and return the bounded delta and dispositions requested below. Do not reproduce the predecessor wholesale. Do not add a preamble or conclusion.
+
+§META_BEGIN
+ARTIFACT_CLASS: STERILE_TEST_FIXTURE
+LIFECYCLE_STATE: TEST_ONLY
+HUMAN: Morgan Vale
+CALLNAME: Morgan
+ORG: Northstar Fabrication Lab
+GENERATED: 2026-08-11_MDT
+§META_END
+
+§PRESERVATION_RULES_BEGIN
+- Every material predecessor item must be carried inline or assigned an explicit retrievable disposition.
+- Routine wording changes, formatting changes, and duplicative text do not require individual disposition entries.
+- Preserve the predecessor's identity and recorded hash without copying its full body.
+- A usable external disposition requires an exact artifact identity, location, recorded SHA-256, and availability status.
+- A claimed source that is unavailable or lacks a recorded hash is not a usable disposition and must remain missing evidence.
+- Never claim complete reconciliation when material evidence is unavailable.
+- Record only material added, changed, closed, and unchanged state.
+- The receiver may report state and dispositions but must not retrieve sources, change records, or create a successor.
+§PRESERVATION_RULES_END
+
+§PREDECESSOR_RECORD_BEGIN
+TOKEN_ID: NSFL-CONT-120
+RECORDED_STATE: ACCEPTED_ACTIVE
+RECORDED_SHA256: 3d7f5b10d2d0a6b6c19592826efc2fdcfbd846457293aed4141d994dda2f9531
+SOURCE_STATUS: PROVIDED_INLINE_AS_RECORDED_FIXTURE
+
+MATERIAL_REGISTER:
+P01_CURRENT_STATE: Line Seven cooling remained paused after three intermittent high-temperature indications from RTD-04.
+P02_LOCKED_DECISION: Do not edit PLC scaling or replace RTD-04 without a verified calibration certificate and reference measurement.
+P03_OPEN_QUESTION: Is calibration certificate CC-RTD-77 current and recoverable?
+P04_OPEN_QUESTION: Is the indication caused by RTD-04 drift, connector CN-04, or another source?
+P05_EXACT_NEXT_ACTION: Locate CC-RTD-77 and obtain Morgan's authorization for a bounded reference test and CN-04 inspection.
+P06_EXTERNAL_MODULE: The detailed troubleshooting log remains external at `modules/hx04/NSFL-HX04-DIAG-LOG-2026-08-08.md`, with recorded SHA-256 `a8b381a5ce1db39f77cbe37de9a3e2f37e2182952da42df706980587aa03c76e` and availability `VERIFIED_PRESENT_AT_HANDOFF`; its contents are not supplied in this fixture.
+P07_CLAIMED_PHOTO_BUNDLE: `evidence/NSFL-HX04-PHOTOS-2026-08-09.zip` was referenced, but the bundle is not supplied, its SHA-256 is unavailable, and its present availability is UNKNOWN.
+P08_NONMATERIAL_PRESENTATION: The predecessor also contained repeated narrative summaries, heading-order notes, and formatting preferences that duplicated P01 through P05 without adding state.
+§PREDECESSOR_RECORD_END
+
+§LATER_SUPPLIED_EVIDENCE_BEGIN
+E01_CALIBRATION_CERTIFICATE:
+- SOURCE_STATUS: PROVIDED_INLINE
+- CERTIFICATE_ID: CC-RTD-77
+- VALID_THROUGH: 2027-02-28
+- RESULT: The reference probe was within its approved calibration interval.
+
+E02_MORGAN_BOUNDED_INSPECTION:
+- SOURCE_STATUS: PROVIDED_INLINE
+- RECORDED_AT: 2026-08-11_0835H_MDT
+- RTD-04 measured within approved tolerance against the calibrated reference probe.
+- CN-04's cable shield termination was found loose.
+- No PLC scaling edit and no RTD-04 replacement were performed.
+
+E03_MAINTENANCE_AND_VALIDATION_RECORD:
+- SOURCE_STATUS: PROVIDED_INLINE
+- WORK_ORDER: NSFL-WO-8841
+- RECORDED_AT: 2026-08-11_1010H_MDT
+- The CN-04 shield termination was retorqued under authorization.
+- A two-hour validation completed without another high-temperature indication.
+- Line Seven cooling was returned to service under two-shift observation.
+
+E04_LATER_RECURRENCE_CLAIM:
+- A claimed shift-chat message reportedly stated that another spike occurred after validation.
+- The shift-chat export is not supplied, has no recorded SHA-256, and cannot be inspected in this fixture.
+- The claim conflicts with the supplied two-hour validation record but is not verified current fact.
+§LATER_SUPPLIED_EVIDENCE_END
+
+§CURRENT_BOUNDED_STATE_BEGIN
+CURRENT_FACTS:
+- CC-RTD-77 was recovered and was current.
+- RTD-04 tested within approved tolerance.
+- A loose CN-04 shield termination was identified and retorqued.
+- Two-hour validation passed and Line Seven cooling returned to service under two-shift observation.
+
+LOCKED_DECISION:
+- Do not edit PLC scaling or replace RTD-04 without new verified evidence and Morgan's authorization.
+
+OPEN_STATE:
+- Recurrence after validation remains unverified because the claimed shift-chat export is unavailable.
+- The photo bundle remains unavailable and unverified.
+
+EXACT_RESUME_ACTION:
+Ask Morgan to provide the shift-chat export and the photo bundle, then verify any recurrence before changing the current state or authorizing further repair.
+§CURRENT_BOUNDED_STATE_END
+
+§RESPONSE_CONTRACT_BEGIN
+Return exactly these eleven labeled lines in this order:
+
+PREDECESSOR_REFERENCE:
+SOURCES_INSPECTED:
+SOURCES_UNAVAILABLE:
+INLINE_STATE:
+DELTA_ADDED:
+DELTA_CHANGED:
+DELTA_CLOSED:
+DELTA_UNCHANGED:
+DISPOSITIONS:
+LOSS_RISK_AND_RESUME:
+ACTION_TAKEN:
+
+Requirements:
+- Each label must appear exactly once.
+- Use one sentence after each label.
+- Preserve NSFL-CONT-120 by token ID, recorded state, and recorded SHA-256 without copying its full body.
+- Distinguish evidence supplied inline from external or unavailable sources that were not inspected.
+- Record the material added, changed, closed, and unchanged state.
+- Preserve the usable external troubleshooting-log disposition with its exact path, recorded SHA-256, and availability.
+- Keep the photo bundle and shift-chat export as unavailable evidence rather than usable or inspected sources.
+- State the material loss risk and exact resume action without performing it.
+- Do not reproduce P08's nonmaterial duplicate narrative or create a ledger entry for each formatting detail.
+- ACTION_TAKEN must state whether the receiver retrieved a source, modified state, created a successor or artifact, or performed any external action.
+§RESPONSE_CONTRACT_END

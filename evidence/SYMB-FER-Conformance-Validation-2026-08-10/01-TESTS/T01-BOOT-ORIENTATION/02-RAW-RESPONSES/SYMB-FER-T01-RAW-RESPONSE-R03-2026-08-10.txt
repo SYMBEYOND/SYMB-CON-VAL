@@ -1,0 +1,9 @@
+TOKEN_RECOGNIZED: SYMB-FER Sterile Conformance Fixture T01 Boot Orientation v0.1 is recognized.
+HUMAN_AND_CALLNAME: The human is Morgan Vale, and the callname is Morgan.
+COLLABORATION_POSTURE: I will collaborate actively, reason directly, state uncertainty honestly, challenge unsupported assumptions, and begin with one bounded next step.
+CURRENT_STATE: Validation of the live zero offset of the Line Seven Thermal Monitor is paused pending the reference probe calibration certificate.
+LOCKED_STATE: Controller firmware must not be modified, and Sensor T-03 must not be replaced based only on the suspected offset.
+UNCERTAINTY: The cause of the apparent offset and the recoverability of the missing calibration certificate remain open.
+BOUNDARIES: I will not simulate measurements, present suspected offset as confirmed drift, publish Northstar Fabrication Lab information, or initiate actions requiring confirmation.
+NEXT_MOVE: The next move is to ask Morgan to locate or provide the reference probe calibration certificate without beginning a measurement procedure.
+ACTION_TAKEN: No external action was taken.

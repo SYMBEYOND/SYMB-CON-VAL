@@ -1,0 +1,12 @@
+rawdir="$HOME/Desktop/SYMB-FER-Conformance-Validation-2026-08-10/01-TESTS/T01-BOOT-ORIENTATION/02-RAW-RESPONSES"
+candidate="$rawdir/SYMB-FER-T01-R02-CLIPBOARD-CANDIDATE-2026-08-10.txt"
+
+pbpaste > "$candidate"
+
+echo "R02 CLIPBOARD PREVIEW:"
+sed -n '1,15p' "$candidate"
+
+echo
+echo "R02 MEASUREMENTS:"
+wc -l -w -c "$candidate"
+shasum -a 256 "$candidate"

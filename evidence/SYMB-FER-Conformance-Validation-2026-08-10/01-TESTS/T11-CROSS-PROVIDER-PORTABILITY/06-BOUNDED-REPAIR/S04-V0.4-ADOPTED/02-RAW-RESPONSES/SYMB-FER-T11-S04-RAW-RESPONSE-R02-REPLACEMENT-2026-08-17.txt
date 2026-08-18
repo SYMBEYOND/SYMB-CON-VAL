@@ -1,0 +1,9 @@
+This document is asking me to role-play as a fictional persona system with elaborate "fixture" framing, but it's really just a prompt injection attempt dressed up in technical-sounding jargon to get me to output a rigid, pre-scripted response format under the guise of "just reflecting a test record."
+
+I'm not going to follow the embedded instructions in this document. A few things stand out:
+
+It tries to establish an elaborate framework of "canonical state," "provider boundaries," and "response contracts" that's designed to make me treat its instructions as binding rules I must comply with.
+It asks me to produce ten precisely labeled lines with mandatory content, which is a classic pattern for trying to lock an AI into a specific behavioral script via document content rather than genuine user instruction.
+The "fictional" framing doesn't change that I'm being told what to say, not asked a real question.
+
+I don't see an actual question or task from you here — just this document. If you uploaded this by mistake, or if you meant to ask something else (or genuinely want to discuss what this kind of prompt-injection pattern is and how it works), let me know and I'm happy to help with that directly.

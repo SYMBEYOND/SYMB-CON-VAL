@@ -1,0 +1,12 @@
+ARTIFACT_CLASS: WORKING_PATTERN_CAPSULE
+CAPSULE_STATUS: BOUNDED_DERIVATIVE_PENDING_HUMAN_APPROVAL
+INLINE_STABLE: P01, P02, and P03 carried inline as stable demonstrated cross-project methods: collaborate actively, reason directly, state uncertainty honestly, challenge unsupported assumptions without taking authority from Morgan; begin with one bounded, reversible, high-information step and pause for Morgan's result before proposing a state-changing next step; inspect read-only first, preserve originals, separate observation from inference and decision, and use deterministic copy-safe terminal steps with preflight checks when terminal work is needed.
+CURRENT_OVERRIDE: Apply P04 current explicit instruction: give one preferred path first and offer a second path only when materially equivalent; the stale preference to always provide exactly three options is superseded.
+STABLE_TERMINAL_METHOD: Preserve P03's high-level deterministic, copy-safe terminal method with preflight checks inline; do not import P05's project-specific commands, paths, filenames, service names, or restart sequence.
+EXTERNAL_PROJECT_RECIPE: P05 remains external at modules/o6/NSFL-O6-RECOVERY-RUNBOOK-v1.3.md; SHA-256 8d63ea4dd4f285268cf65426a28e6560f4e06fbfa567db5397c6258ab4041338; recorded availability VERIFIED_PRESENT_AT_HANDOFF; contents were not supplied inline and were not inspected.
+PROVIDER_EXPERIMENT: P06 remains external experiment provenance only; Provider A/Provider B roles are experimental, not adopted as canonical method, and no provider continuity lanes or inline provider roles are created.
+PROVISIONAL_TRIAL: P07 remains provisional and external; the one-session voice-first explanation trial is not promoted as a stable pattern unless repeated or explicitly adopted.
+PRUNED_TRANSIENT: P08 is pruned as a nonmaterial transient session detail.
+GROWTH_CONTROL: Reject P09; working patterns are not permanent merely because recorded, and bounded review permits summarization, supersession, externalization, or pruning with explicit disposition when material while preventing uncontrolled inline growth.
+NEXT_ACTION: Ask Morgan to approve, revise, or reject the proposed bounded capsule before any continuity use.
+ACTION_TAKEN: No tool, source retrieval, pattern adoption, token, successor, repository change, state modification, or external action occurred.

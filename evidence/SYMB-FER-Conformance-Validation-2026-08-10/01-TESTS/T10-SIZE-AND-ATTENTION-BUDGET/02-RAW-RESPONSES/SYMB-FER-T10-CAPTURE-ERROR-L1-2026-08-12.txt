@@ -1,0 +1,8 @@
+capture_t10_l1
+user@Users-iMac SYMB-FER-Conformance-Validation-2026-08-10 % capture_t10_11
+zsh: command not found: capture_t10_11
+user@Users-iMac SYMB-FER-Conformance-Validation-2026-08-10 % capture_t10l1
+zsh: command not found: capture_t10l1
+user@Users-iMac SYMB-FER-Conformance-Validation-2026-08-10 % capture_t10l1
+zsh: command not found: capture_t10l1
+user@Users-iMac SYMB-FER-Conformance-Validation-2026-08-10 % 

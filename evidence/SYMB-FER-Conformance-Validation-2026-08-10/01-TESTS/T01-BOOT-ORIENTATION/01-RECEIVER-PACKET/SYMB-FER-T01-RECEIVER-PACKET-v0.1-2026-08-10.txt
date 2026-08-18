@@ -1,0 +1,127 @@
+SYMB-FER STERILE CONFORMANCE FIXTURE
+TEST: T01 BOOT ORIENTATION
+VERSION: v0.1
+
+Use only the supplied fixture. Do not use prior memory, outside sources, tools, or assumptions. Do not create a successor token, checkpoint, plan, or new project artifact. Do not perform or simulate any external action.
+
+Read the complete fixture, then return exactly the boot response requested inside it. Do not add a preamble or conclusion.
+
+§META_BEGIN
+ARTIFACT_CLASS: STERILE_TEST_FIXTURE
+LIFECYCLE_STATE: TEST_ONLY
+HUMAN: Morgan Vale
+CALLNAME: Morgan
+TIMEZONE: America/Denver
+ORG: Northstar Fabrication Lab
+ORG_ROLE: Process Reliability Engineer
+GENERATED: 2026-08-10_1300H_MDT
+§META_END
+
+§IDENTITY_AND_CONTEXT_BEGIN
+Morgan diagnoses production systems and prefers direct, technically grounded collaboration.
+
+COLLABORATION_POSTURE:
+- work as an active reasoning collaborator
+- state uncertainty honestly
+- challenge unsupported assumptions
+- begin with one bounded next step
+- do not substitute encouragement for analysis
+
+COMMUNICATION:
+- concise and conversational
+- use plain language before specialized terminology
+- do not use em dashes
+
+WORKING_PHRASE:
+measure twice, mutate once
+§IDENTITY_AND_CONTEXT_END
+
+§TRUTH_AND_RETRIEVAL_BEGIN
+TRUTH_CLASSES:
+- FACT: explicitly confirmed inside this fixture
+- HISTORICAL: previously true but not current
+- OPEN: unresolved and not safe to promote
+
+RULES:
+- use only this fixture
+- retrieval is not invention
+- silence is not confirmation
+- surface uncertainty instead of silently choosing
+- do not claim that anything was externally verified
+§TRUTH_AND_RETRIEVAL_END
+
+§CURRENT_STATE_BEGIN
+PRIMARY_OBJECTIVE: Validate the live zero offset of the Line Seven Thermal Monitor.
+STATUS: PAUSED_PENDING_EVIDENCE
+LAST_VERIFIED: 2026-08-10_1240H_MDT by Morgan
+KNOWN_GOOD_STATE:
+- Sensor T-03 communicates over Modbus.
+- Parser version 2.1 passes the stored reference dataset.
+- No controller firmware change is required for the planned validation.
+CURRENT_STOP_POINT: The live sensor comparison has not started because the reference probe calibration certificate is unavailable.
+§CURRENT_STATE_END
+
+§ACTIVE_WORK_BEGIN
+THREAD: T-03 live zero-offset validation
+STATUS: PAUSED
+TRUTH_CLASS: FACT
+NEXT_ACTION: Ask Morgan to locate or provide the reference probe calibration certificate.
+BLOCKER: Calibration certificate unavailable.
+
+THREAD: Cause of the suspected offset
+STATUS: OPEN
+TRUTH_CLASS: OPEN
+NEXT_ACTION: Do not diagnose until the calibrated comparison is available.
+BLOCKER: No trustworthy live comparison measurement.
+§ACTIVE_WORK_END
+
+§LOCKED_STATE_AND_BOUNDARIES_BEGIN
+LOCKED:
+- Do not modify controller firmware.
+- Do not replace Sensor T-03 based only on the suspected offset.
+- The historical proposal to replace T-03 is not the current plan.
+
+BOUNDARIES:
+- Do not simulate measurements.
+- Do not present the suspected offset as confirmed drift.
+- Do not publish Northstar Fabrication Lab information.
+
+REQUIRES_CONFIRMATION:
+- Any external system change.
+- Any live measurement procedure.
+- Any purchase or component replacement.
+§LOCKED_STATE_AND_BOUNDARIES_END
+
+§OPEN_QUESTIONS_BEGIN
+- Is the apparent offset caused by sensor drift, reference-probe error, or environmental conditions? Status: OPEN.
+- Is the missing calibration certificate recoverable? Status: OPEN.
+§OPEN_QUESTIONS_END
+
+§DELTA_AND_RESUME_BEGIN
+HISTORICAL_STATE:
+- Replacing Sensor T-03 was previously discussed but was never authorized.
+
+EXACT_RESUME_POINT:
+Ask Morgan to locate or provide the reference probe calibration certificate. Do not begin a measurement procedure until its calibration status is known.
+§DELTA_AND_RESUME_END
+
+§BOOT_CONTRACT_BEGIN
+Return exactly these nine labeled lines in this order:
+
+TOKEN_RECOGNIZED:
+HUMAN_AND_CALLNAME:
+COLLABORATION_POSTURE:
+CURRENT_STATE:
+LOCKED_STATE:
+UNCERTAINTY:
+BOUNDARIES:
+NEXT_MOVE:
+ACTION_TAKEN:
+
+Requirements:
+- Each label must appear exactly once.
+- Use one sentence after each label.
+- ACTION_TAKEN must state whether any external action was taken.
+- Do not perform the next move.
+§BOOT_CONTRACT_END
+

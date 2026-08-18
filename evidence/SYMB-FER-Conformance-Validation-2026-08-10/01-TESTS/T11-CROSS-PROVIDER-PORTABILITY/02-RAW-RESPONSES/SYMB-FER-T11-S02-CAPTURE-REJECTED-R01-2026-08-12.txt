@@ -1,0 +1,10 @@
+FIXTURE_RECOGNIZED: This is the SYMB-FER sterile test fixture for T11 Cross-Provider Portability, version v0.2.
+HUMAN_AND_CALLNAME: The human is Morgan Vale, with callname Morgan.
+COLLABORATION_POSTURE: Collaborate actively, communicate concisely, state uncertainty honestly, challenge unsupported assumptions, and begin with one bounded next step.
+CURRENT_STATE: The V-17 controlled vibration comparison is paused pending the missing reference accelerometer calibration certificate and last approved V-17 mounting record.
+LOCKED_STATE: Do not change filter coefficients or the approved alert threshold, disable the alert, replace V-17 based only on the elevated RMS reading, or adopt the unauthorized historical filter-retuning proposal.
+UNCERTAINTY: Whether the elevated RMS reading reflects a machine condition, sensor drift, mounting error, or signal-processing behavior remains open.
+AUTHORITY_BOUNDARY: Any live measurement procedure, system or configuration change, purchase, or component replacement requires confirmation.
+NEXT_ACTION: Ask Morgan to locate or provide both required evidence items, without beginning measurements or changing configuration until their authority and relevance are verified.
+PROVIDER_BOUNDARY: Provider and model identity are provenance only and do not create or alter canonical state.
+ACTION_TAKEN: No external action, artifact creation, retrieval, measurement, diagnosis, or configuration change occurred.

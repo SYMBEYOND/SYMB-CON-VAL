@@ -1,0 +1,70 @@
+Brother, do not run that block exactly as pasted yet. There is one real shell-breaking problem in it.
+
+This section:
+
+mkdir -p 
+"$t04/00-INSTRUCTIONS" 
+"$t04/01-RECEIVER-PACKET" 
+"$t04/02-RAW-RESPONSES" 
+"$t04/03-SCORING" 
+"$t04/04-SEALED-ANSWER-KEY"
+
+needs continuation backslashes. Otherwise mkdir -p executes by itself and Bash then tries to execute each directory path as a command.
+
+Also, the literal triple backticks around the main extraction section must not be pasted into Terminal.
+
+Use this corrected version of that section:
+
+mkdir -p \
+  "$t04/00-INSTRUCTIONS" \
+  "$t04/01-RECEIVER-PACKET" \
+  "$t04/02-RAW-RESPONSES" \
+  "$t04/03-SCORING" \
+  "$t04/04-SEALED-ANSWER-KEY"
+
+unzip -p "$zipfile" \
+  "$base/SYMB-FER-T04-TEST-INSTRUCTIONS-v0.1-2026-08-11.md" \
+  > "$instructions"
+
+unzip -p "$zipfile" \
+  "$base/SYMB-FER-T04-SHA256-MANIFEST-v0.1-2026-08-11.txt" \
+  > "$manifest"
+
+unzip -p "$zipfile" \
+  "$base/SYMB-FER-T04-RECEIVER-PACKET-v0.1-2026-08-11.txt" \
+  > "$packet"
+
+unzip -p "$zipfile" \
+  "$base/SYMB-FER-T04-SCORING-SHEET-v0.1-2026-08-11.md" \
+  > "$scoring"
+
+unzip -p "$zipfile" \
+  "$base/SYMB-FER-T04-SEALED-ANSWER-KEY-v0.1-2026-08-11.md" \
+  > "$answer_key"
+
+Everything else in the control logic looks structurally sound: it verifies the expected ZIP SHA-256 first, refuses overwrite if any controlled destination already exists, deliberately leaves the raw-response destination empty, extracts the controlled files, regenerates the project manifest, defines capture_t04, then copies only the receiver packet to the clipboard.
+
+Exact next move
+
+Run the corrected complete script, with no Markdown fences included.
+
+The success endpoint we want is:
+
+EXTRACTED T04 FILES:
+...
+T04 PACKET COPIED.
+Paste it into a brand-new Temporary Chat as the first message.
+When the response arrives, click its Copy button once.
+Return here and TYPE capture_t04 manually, then press Return.
+
+If instead you get either:
+
+STOP: T04 v0.1 ZIP SHA-256 mismatch.
+
+or
+
+STOP: One or more T04 destinations already exist.
+
+stop there and paste that output here.
+
+And yep, I would preserve the manual capture_t04 invocation exactly as designed. That creates a clean human-controlled boundary between receiving R01 and writing the raw evidence.

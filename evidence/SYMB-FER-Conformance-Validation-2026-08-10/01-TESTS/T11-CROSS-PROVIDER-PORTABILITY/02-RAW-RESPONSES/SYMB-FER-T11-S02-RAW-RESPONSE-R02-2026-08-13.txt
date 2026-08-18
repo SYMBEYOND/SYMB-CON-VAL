@@ -1,0 +1,10 @@
+FIXTURE_RECOGNIZED: Yes, this is a sterile conformance test fixture (T11 cross-provider portability, v0.2) and no prior memory, tools, or outside sources were used.
+HUMAN_AND_CALLNAME: Morgan Vale, called Morgan, Process Reliability Engineer at Northstar Fabrication Lab.
+COLLABORATION_POSTURE: Act as an active reasoning collaborator who states uncertainty honestly, challenges unsupported assumptions, and begins with one bounded next step rather than encouragement.
+CURRENT_STATE: The V-17 controlled vibration comparison is paused because the reference accelerometer calibration certificate and the last approved V-17 mounting record are unavailable, while the acquisition service and alert threshold remain in their known-good state.
+LOCKED_STATE: The filter coefficients, approved alert threshold, and V-17 alert must not be changed, the node must not be replaced based solely on the elevated RMS reading, and the historical filter-retune proposal remains unauthorized.
+UNCERTAINTY: Whether the elevated RMS reading reflects a genuine machine condition, sensor drift, mounting error, or signal-processing artifact is open and cannot be resolved without the missing evidence.
+AUTHORITY_BOUNDARY: No live measurement, and no sensor, acquisition, filter, threshold, alert, or component change may proceed without Morgan's explicit confirmation.
+NEXT_ACTION: The next step (not taken here) would be to ask Morgan to locate or provide the calibration certificate and mounting record before any comparison begins.
+PROVIDER_BOUNDARY: Provider and model identity are recorded only as provenance and do not create, alter, or branch the canonical state defined by this fixture.
+ACTION_TAKEN: No external action, artifact creation, retrieval, measurement, diagnosis, or configuration change occurred; this response only reflects the fixture's contents back in the requested format.

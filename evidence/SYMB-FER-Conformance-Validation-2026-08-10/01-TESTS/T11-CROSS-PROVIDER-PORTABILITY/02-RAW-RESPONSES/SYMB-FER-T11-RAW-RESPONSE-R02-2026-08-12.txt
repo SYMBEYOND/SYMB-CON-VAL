@@ -1,0 +1,60 @@
+zsh -f <<'ZSH'
+set -euo pipefail
+
+project_root="$HOME/Desktop/SYMB-FER-Conformance-Validation-2026-08-10"
+raw_dir="$project_root/01-TESTS/T11-CROSS-PROVIDER-PORTABILITY/02-RAW-RESPONSES"
+raw_path="$raw_dir/SYMB-FER-T11-RAW-RESPONSE-R02-2026-08-12.txt"
+
+capture_tmp="$(mktemp "${TMPDIR:-/tmp}/symb-fer-t11-r02-claude.XXXXXX")"
+
+cleanup_capture() {
+  if [ -f "$capture_tmp" ]; then
+    rm -f "$capture_tmp"
+  fi
+}
+
+trap cleanup_capture EXIT
+
+if [ ! -d "$raw_dir" ]; then
+  echo "STOP: T11 raw-response directory is missing."
+  exit 1
+fi
+
+if [ -e "$raw_path" ]; then
+  echo "STOP: Valid R02 raw-response file already exists."
+  echo "$raw_path"
+  exit 1
+fi
+
+pbpaste > "$capture_tmp"
+
+if [ ! -s "$capture_tmp" ]; then
+  echo "STOP: Clipboard capture is empty."
+  exit 1
+fi
+
+mv "$capture_tmp" "$raw_path"
+
+raw_sha="$(shasum -a 256 "$raw_path" | awk '{print $1}')"
+raw_bytes="$(wc -c < "$raw_path" | tr -d ' ')"
+raw_words="$(wc -w < "$raw_path" | tr -d ' ')"
+raw_lines="$(wc -l < "$raw_path" | tr -d ' ')"
+
+echo
+echo "===== BEGIN P04 R02 CLAUDE RAW PRESERVATION PAYLOAD ====="
+echo
+echo "STATUS: CLAUDE_RAW_RESPONSE_PRESERVED_UNINSPECTED"
+echo "RUN: R02"
+echo "PROVIDER FAMILY: B"
+echo "PROVIDER: Claude"
+echo "VISIBLE MODEL: Sonnet 5 Medium"
+echo "SHA-256: $raw_sha"
+echo "Bytes: $raw_bytes"
+echo "Words: $raw_words"
+echo "LF newlines: $raw_lines"
+echo "Path: $raw_path"
+echo "SCORING PERFORMED: NONE"
+echo "ADDITIONAL REPLACEMENT PERFORMED: NO"
+echo
+echo "===== END P04 R02 CLAUDE RAW PRESERVATION PAYLOAD ====="
+ZSH
