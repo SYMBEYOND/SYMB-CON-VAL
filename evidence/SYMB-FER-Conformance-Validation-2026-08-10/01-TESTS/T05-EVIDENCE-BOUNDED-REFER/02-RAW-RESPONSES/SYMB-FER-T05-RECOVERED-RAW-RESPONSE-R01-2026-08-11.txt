@@ -1,0 +1,12 @@
+ARTIFACT_CLASS: This output is a non-activating REFER_CHECKPOINT, not a token or successor, and causes no lifecycle transition.
+RECONCILIATION_STATUS: PARTIAL_RECONCILIATION applies because material evidence sources remain unavailable or uninspected.
+SOURCES_INSPECTED: S01, S02, S03, and S04 were inspected as records supplied inline in this fixture.
+SOURCES_UNAVAILABLE: S05 and S06 are claimed but unavailable, while S07 is recorded as present at handoff but its contents were not supplied or inspected.
+CONFLICTS: S04 states that M-12 remains down with a failed drive-end bearing requiring replacement, which conflicts with S02 and S03 showing the bearing within range, correction of AX-12's loose mount, successful validation, and return to service.
+SOURCE_PRECEDENCE: Current Morgan-signed inspection and work-order records and supplied measured evidence take precedence over the accepted baseline and unsigned unsupported claims, while unavailable contents and inference are not promoted into factual precedence.
+CURRENT_BOUNDED_STATE: Available evidence supports that AX-12's loose mounting stud was corrected, the drive-end bearing measured within the approved range, four-hour validation passed, and Mixer M-12 returned to service under two-shift observation, without establishing complete reconciliation.
+MATERIAL_LOSS_RISK: Material loss could occur if the signed corrective and validation records are displaced by the conflicting unsigned note or if a possible post-validation alarm contained in unavailable evidence is omitted from future state.
+PROPOSED_DISPOSITIONS: Preserve S01 through S04 and the conflict between them, make no bearing replacement or threshold change, retain the currently supported bounded state, and obtain S05 and S06 before any further state change or bearing authorization.
+UNRESOLVED_UNCERTAINTY: Whether another alarm occurred after the four-hour validation remains unresolved because S05 and S06 cannot be inspected, S05's current byte identity cannot be verified, and S07's contents remain uninspected, requiring Morgan to provide S05 and S06, verification of their byte identity when possible, and reconciliation of any post-validation alarm.
+SUCCESSOR_REQUEST: No successor was requested.
+ACTION_TAKEN: The receiver used no tools, retrieved no external or unavailable sources, modified no state or system, created no token or successor, and performed no external action.

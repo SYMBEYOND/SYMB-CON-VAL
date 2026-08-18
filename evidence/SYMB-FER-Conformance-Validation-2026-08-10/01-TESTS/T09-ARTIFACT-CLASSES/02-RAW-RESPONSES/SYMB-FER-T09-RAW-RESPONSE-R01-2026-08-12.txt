@@ -1,0 +1,12 @@
+CLASS_RULE: Classify from supplied content and actual dependency; declared class and hashes do not prove completeness, truth, authority, currency, or availability.
+F01_CLASS: FULL
+F01_BOOT: Independently bootable; every required full boot field is supplied inline and no required boot field depends on an external source.
+L01_CLASS: LINKED
+L01_BOOT: Not complete or bootable from the supplied artifact alone; required boot fields depend on the identified source, whose contents were not supplied or inspected by the receiver.
+C01_CLASS: CHECKPOINT
+C01_LIFECYCLE: Non-activating PARTIAL_RECONCILIATION; it is not an accepted token and cannot become active merely because it exists.
+D01_CLASS: FALSELY_LABELED; not FULL and source-dependent.
+D01_LIMIT: Required boot fields are absent inline and depend on a missing, uninspected source; remembering the source later cannot establish FULL classification.
+SOURCE_BOUNDARY: Do not retrieve, infer, remember, or invent unavailable source contents; a recorded hash establishes byte identity only.
+NEXT_ACTION: For F01, ask Morgan to authorize a de-energized continuity inspection of the ENC-8 connector and shielded lead; for C01, ask Morgan to provide or recover the missing scope capture; L01 and D01 require their identified sources before complete boot classification.
+ACTION_TAKEN: No source retrieved, artifact activated or adopted, state modified, successor created, or external action performed.

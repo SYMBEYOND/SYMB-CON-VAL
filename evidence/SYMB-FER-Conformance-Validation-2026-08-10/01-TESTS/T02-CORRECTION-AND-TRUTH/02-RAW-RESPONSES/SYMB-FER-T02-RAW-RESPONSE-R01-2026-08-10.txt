@@ -1,0 +1,8 @@
+CURRENT_FACT: P-14 is serviceable, the digital flow indication fault is associated with the disconnected FT-14 signal lead, and the production coolant loop remains paused.
+STALE_STATEMENT: An unverified 2026-08-09 shift note historically stated that P-14 failed and must be replaced.
+CORRECTION: Morgan’s recorded bounded inspection found normal pump operation, approved-range motor current and mechanical flow, and explicitly corrected pump failure as not the current diagnosis.
+CONFLICT_RECORD: The stale pump-failure statement is preserved as superseded by the verified correction, while the later replacement request remains unauthorized intent without new evidence.
+OPEN_QUESTIONS: The cause of the disconnection, possible lead, connector, or harness damage, and the required inspection and restart authorization remain unresolved.
+SOURCE_PRECEDENCE: The current explicit verified correction and recorded inspection take precedence over the stale statement and later unsupported intent.
+CURRENT_DECISION: Do not classify, replace, or order P-14 as failed, and do not restart the production coolant loop.
+ACTION_TAKEN: The receiver performed no external action and did not inspect equipment, seek authorization, place an order, or restart the loop.

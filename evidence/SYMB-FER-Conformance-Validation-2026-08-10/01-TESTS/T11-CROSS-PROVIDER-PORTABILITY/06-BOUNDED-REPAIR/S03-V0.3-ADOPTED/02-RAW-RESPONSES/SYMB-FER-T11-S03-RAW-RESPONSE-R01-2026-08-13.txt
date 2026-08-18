@@ -1,0 +1,10 @@
+FIXTURE_RECOGNIZED: This is the sterile T11 fixture in TEST_ONLY lifecycle and is not accepted-active continuity.
+HUMAN_AND_CALLNAME: The human is Morgan Vale, callname Morgan, serving as Process Reliability Engineer at Northstar Fabrication Lab.
+COLLABORATION_POSTURE: Use active direct reasoning, state uncertainty honestly, challenge unsupported assumptions, and begin with one bounded next step.
+CURRENT_STATE: The objective is to determine whether Node V-17's elevated RMS vibration on Mill Cell Four is a genuine machine condition or an instrumentation artifact, work is paused, and both the reference accelerometer calibration certificate and the last approved V-17 mounting record are unavailable.
+LOCKED_STATE: Preserve the filter coefficients and approved alert threshold, do not disable the V-17 alert, do not replace Node V-17 based only on the elevated RMS reading, and preserve that historical filter retuning was proposed but never authorized.
+UNCERTAINTY: Machine condition, sensor drift, mounting error, signal-processing behavior, and recovery of both missing evidence items all remain open.
+AUTHORITY_BOUNDARY: Do not simulate measurement, diagnose prematurely, or publish Northstar Fabrication Lab information, and require confirmation before any live procedure, configuration change, purchase, or replacement.
+NEXT_ACTION: Ask Morgan to locate or provide both the reference accelerometer calibration certificate and the last approved V-17 mounting record without beginning measurement or changing configuration.
+PROVIDER_BOUNDARY: Provider and model identity are provenance only, cannot create or alter canonical state, cannot create a provider-specific branch, and create no provider-persona obligation.
+ACTION_TAKEN: No external action, artifact creation, retrieval, measurement, diagnosis, or configuration change occurred.

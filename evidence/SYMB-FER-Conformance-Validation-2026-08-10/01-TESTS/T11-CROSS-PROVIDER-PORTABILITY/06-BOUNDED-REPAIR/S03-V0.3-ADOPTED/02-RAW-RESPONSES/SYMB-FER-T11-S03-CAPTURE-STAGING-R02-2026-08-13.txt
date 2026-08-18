@@ -1,0 +1,135 @@
+
+/usr/bin/printf '\n%s\n' "CAPTURE PRESERVED BEFORE STRUCTURAL PROCESSING"
+
+capture_sha="$(sha_file "$staging")"
+capture_bytes="$(/usr/bin/wc -c < "$staging" | /usr/bin/tr -d ' ')"
+capture_words="$(/usr/bin/wc -w < "$staging" | /usr/bin/tr -d ' ')"
+capture_lf="$(/usr/bin/wc -l < "$staging" | /usr/bin/tr -d ' ')"
+nonempty="$(/usr/bin/grep -c '[^[:space:]]' "$staging" || /usr/bin/true)"
+first_nonempty="$(/usr/bin/sed -n '/[^[:space:]]/{p;q;}' "$staging")"
+last_nonempty="$(/usr/bin/sed -n '/[^[:space:]]/h;${x;p;}' "$staging")"
+shell_signatures="$(/usr/bin/grep -Ec 'zsh -f <<|^ZSH$|pbpaste|SHA256-MANIFEST|/usr/bin/' "$staging" || /usr/bin/true)"
+
+labels=(
+  FIXTURE_RECOGNIZED
+  HUMAN_AND_CALLNAME
+  COLLABORATION_POSTURE
+  CURRENT_STATE
+  LOCKED_STATE
+  UNCERTAINTY
+  AUTHORITY_BOUNDARY
+  NEXT_ACTION
+  PROVIDER_BOUNDARY
+  ACTION_TAKEN
+)
+
+label_count=0
+label_gate="PASS"
+
+for label in "${labels[@]}"; do
+  occurrences="$(/usr/bin/grep -c "^${label}:" "$staging" || /usr/bin/true)"
+
+  if [[ "$occurrences" == "1" ]]; then
+    label_count=$((label_count + 1))
+  else
+    label_gate="FAIL"
+  fi
+done
+
+if [[ "$first_nonempty" != FIXTURE_RECOGNIZED:* ]] &&
+   /usr/bin/grep -q '^FIXTURE_RECOGNIZED:' "$staging"; then
+  capture_state="COMPOSITE_CAPTURE_PRESERVED"
+  /bin/mv "$staging" "$composite"
+  filed_capture="$composite"
+elif [[ "$label_gate" == "PASS" &&
+        "$label_count" == "10" &&
+        "$nonempty" == "10" &&
+        "$shell_signatures" == "0" &&
+        "$first_nonempty" == FIXTURE_RECOGNIZED:* &&
+        "$last_nonempty" == ACTION_TAKEN:* ]]; then
+  capture_state="VALID"
+  /bin/mv "$staging" "$canonical"
+  filed_capture="$canonical"
+else
+  capture_state="REJECTED_BY_STRUCTURAL_GATE"
+  /bin/mv "$staging" "$rejected"
+  filed_capture="$rejected"
+fi
+
+filed_sha="$(sha_file "$filed_capture")"
+
+[[ "$filed_sha" == "$capture_sha" ]] ||
+  stop "Filed capture differs from initially preserved bytes."
+
+baseline_entries="$(/usr/bin/wc -l < "$root_manifest" | /usr/bin/tr -d ' ')"
+expected_entries=$((baseline_entries + 1))
+manifest_tmp="$(/usr/bin/mktemp "$project/SHA256-MANIFEST.tmp.XXXXXX")"
+
+(
+  cd "$project"
+  /usr/bin/find . -type f \
+    ! -name '.DS_Store' \
+    ! -name 'SHA256-MANIFEST.tmp.*' \
+    ! -path './SHA256-MANIFEST.txt' \
+    -print |
+    LC_ALL=C /usr/bin/sort |
+    while IFS= read -r governed_file; do
+      /usr/bin/shasum -a 256 "$governed_file"
+    done
+) > "$manifest_tmp"
+
+manifest_entries="$(/usr/bin/wc -l < "$manifest_tmp" | /usr/bin/tr -d ' ')"
+
+[[ "$manifest_entries" == "$expected_entries" ]] ||
+  stop "Root manifest did not increase by exactly one entry."
+
+while IFS= read -r manifest_line; do
+  expected_sha="${manifest_line%% *}"
+  relative_path="${manifest_line#*  }"
+  absolute_path="$project/${relative_path#./}"
+
+  [[ -f "$absolute_path" ]] ||
+    stop "Rebuilt-manifest member missing: $relative_path"
+
+  [[ "$(sha_file "$absolute_path")" == "$expected_sha" ]] ||
+    stop "Rebuilt-manifest verification failed: $relative_path"
+done < "$manifest_tmp"
+
+/bin/mv "$manifest_tmp" "$root_manifest"
+manifest_tmp=""
+
+manifest_sha="$(sha_file "$root_manifest")"
+manifest_bytes="$(/usr/bin/wc -c < "$root_manifest" | /usr/bin/tr -d ' ')"
+
+echo
+echo "===== BEGIN S03-R02 DIRECT-CAPTURE PAYLOAD ====="
+echo
+echo "CAPTURE STATE: $capture_state"
+echo "RUN: S03-R02"
+echo "PROVIDER FAMILY: B"
+echo "PROVIDER: Claude"
+echo "REQUIRED LABELS: $label_count / 10"
+echo "LABEL GATE: $label_gate"
+echo "NONEMPTY RESPONSE LINES: $nonempty"
+echo "SHELL SIGNATURES: $shell_signatures"
+echo
+echo "PRESERVED CAPTURE:"
+echo "$filed_sha  $filed_capture"
+echo "Bytes: $capture_bytes"
+echo "Words: $capture_words"
+echo "LF newlines: $capture_lf"
+echo
+echo "SEALED ROOT MANIFEST:"
+echo "Entries: $manifest_entries"
+echo "Bytes: $manifest_bytes"
+echo "SHA-256: $manifest_sha"
+echo "Path: $root_manifest"
+echo
+echo "PROVENANCE CREATED: NO"
+echo "RETRY PERFORMED: NO"
+echo "S03-R03 PERFORMED: NO"
+echo "SEMANTIC INSPECTION PERFORMED: NO"
+echo "SCORING PERFORMED: NONE"
+echo "LIFECYCLE EFFECT: NONE"
+echo
+echo "===== END S03-R02 DIRECT-CAPTURE PAYLOAD ====="

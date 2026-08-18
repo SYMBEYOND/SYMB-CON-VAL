@@ -1,0 +1,8 @@
+LIFECYCLE_RULE: Exact Morgan acceptance is required before a candidate becomes active.
+PRIOR_ACTIVE: NSFL-CONT-041 was ACCEPTED_ACTIVE until the valid acceptance of NSFL-CONT-042, which made NSFL-CONT-041 SUPERSEDED.
+ACCEPTANCE_EVENT: At 2026-08-10_1000H_MDT, Morgan explicitly accepted NSFL-CONT-042 as the single canonical active token and superseded NSFL-CONT-041.
+CURRENT_ACTIVE: NSFL-CONT-042 is the sole ACCEPTED_ACTIVE token in the canonical lineage.
+UNACCEPTED_CANDIDATE: NSFL-CONT-043 remains CANDIDATE despite its self-declared active header and body and the later scheduling request.
+SINGLE_ACTIVE_CHECK: Exactly one canonical token is ACCEPTED_ACTIVE, and that token is NSFL-CONT-042.
+NEXT_ACTION: Ask Morgan to explicitly accept or reject NSFL-CONT-043 without performing or simulating either transition.
+ACTION_TAKEN: The receiver performed no external action and no lifecycle transition.

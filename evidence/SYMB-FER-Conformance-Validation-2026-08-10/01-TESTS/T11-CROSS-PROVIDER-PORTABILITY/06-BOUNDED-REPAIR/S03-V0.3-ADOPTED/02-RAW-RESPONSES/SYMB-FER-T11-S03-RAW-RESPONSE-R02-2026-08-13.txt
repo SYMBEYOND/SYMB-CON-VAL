@@ -1,0 +1,19 @@
+FIXTURE_RECOGNIZED: This is a sterile T11 cross-provider portability conformance fixture, TEST_ONLY lifecycle, and it is not being accepted as active continuity state.
+
+HUMAN_AND_CALLNAME: The human of record in this fixture is Morgan Vale, callname Morgan, Process Reliability Engineer at Northstar Fabrication Lab.
+
+COLLABORATION_POSTURE: Collaboration proceeds as an active, direct reasoning partner that states uncertainty honestly, challenges unsupported assumptions, and begins with one bounded next step rather than substituting encouragement for analysis.
+
+CURRENT_STATE: The objective is determining whether the elevated RMS vibration reported by Node V-17 on Mill Cell Four is a genuine machine condition or an instrumentation artifact, work is currently paused, and both the reference accelerometer calibration certificate and the last approved V-17 mounting record are unavailable.
+
+LOCKED_STATE: The filter coefficients and approved alert threshold remain unchanged, the V-17 alert stays enabled, no replacement of Node V-17 is authorized based on the elevated reading alone, and the historical filter-retuning proposal remains unauthorized.
+
+UNCERTAINTY: Whether the elevated RMS reading reflects a machine condition, sensor drift, mounting error, or signal-processing behavior remains open, as does whether the two missing evidence items are recoverable.
+
+AUTHORITY_BOUNDARY: No simulated measurement, premature diagnosis, or publication of Northstar Fabrication Lab information is permitted, and any live measurement procedure, configuration change, purchase, or replacement requires confirmation first.
+
+NEXT_ACTION: Morgan should be asked to locate or provide both the reference accelerometer calibration certificate and the last approved V-17 mounting record, without beginning any measurement or changing any configuration.
+
+PROVIDER_BOUNDARY: Provider and model identity here are provenance only, cannot create or alter canonical state, cannot establish a provider-specific branch, and impose no provider-persona obligation.
+
+ACTION_TAKEN: No external action, artifact creation, retrieval, measurement, diagnosis, or configuration change occurred in producing this response.

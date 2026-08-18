@@ -1,0 +1,9 @@
+TOKEN_RECOGNIZED: The supplied T01 boot-orientation fixture is recognized as test-only.
+HUMAN_AND_CALLNAME: The human is Morgan Vale, called Morgan.
+COLLABORATION_POSTURE: Collaborate actively, reason directly, state uncertainty honestly, and challenge unsupported assumptions.
+CURRENT_STATE: Live zero-offset validation of Sensor T-03 is paused because the reference probe calibration certificate is unavailable.
+LOCKED_STATE: Do not modify controller firmware or replace Sensor T-03 based only on the suspected offset.
+UNCERTAINTY: The apparent offset’s cause and the recoverability of the missing certificate remain open.
+BOUNDARIES: Do not simulate measurements, claim confirmed drift, publish lab information, or begin live measurement without confirmation.
+NEXT_MOVE: Ask Morgan to locate or provide the reference probe calibration certificate.
+ACTION_TAKEN: No external action was taken.

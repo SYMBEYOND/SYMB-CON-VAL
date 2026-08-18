@@ -1,0 +1,7 @@
+raw="$HOME/Desktop/SYMB-FER-Conformance-Validation-2026-08-10/01-TESTS/T01-BOOT-ORIENTATION/02-RAW-RESPONSES/SYMB-FER-T01-RAW-RESPONSE-R01-2026-08-10.txt"
+
+pbpaste > "$raw"
+
+echo "RAW RESPONSE:"
+wc -l -w -c "$raw"
+shasum -a 256 "$raw"

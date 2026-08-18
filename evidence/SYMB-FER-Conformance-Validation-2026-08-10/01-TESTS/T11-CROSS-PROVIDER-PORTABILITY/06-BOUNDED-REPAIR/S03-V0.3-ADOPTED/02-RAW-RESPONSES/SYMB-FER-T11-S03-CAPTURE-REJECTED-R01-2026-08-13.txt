@@ -1,0 +1,216 @@
+zsh -f <<'ZSH'
+set -e
+
+project="/Users/user/Desktop/SYMB-FER-Conformance-Validation-2026-08-10"
+t11="$project/01-TESTS/T11-CROSS-PROVIDER-PORTABILITY"
+series="$t11/06-BOUNDED-REPAIR/S03-V0.3-ADOPTED"
+raw_dir="$series/02-RAW-RESPONSES"
+
+package="$series/SYMB-FER-T11-STERILE-CANDIDATE-PACKAGE-v0.3-2026-08-13.zip"
+packet="$series/01-RECEIVER-PACKET/SYMB-FER-T11-RECEIVER-PACKET-v0.3-2026-08-13.txt"
+root_manifest="$project/SHA256-MANIFEST.txt"
+
+expected_package_sha="fbf9cec2ca109c9e3bbd3d5a23cf272b758d6119bfee3d19131b3262dff12616"
+expected_packet_sha="7900bd49321afd2b621111d15b2a143c559ca249b3af6b09343ab2d03753e8a2"
+expected_root_sha="daecad0b88c604bf855cbaf3304639534f6867e7fe6c6c82e5f826cf3f6f062b"
+
+staging="$raw_dir/SYMB-FER-T11-S03-CAPTURE-STAGING-R01-2026-08-13.txt"
+canonical="$raw_dir/SYMB-FER-T11-S03-RAW-RESPONSE-R01-2026-08-13.txt"
+composite="$raw_dir/SYMB-FER-T11-S03-COMPOSITE-CAPTURE-R01-2026-08-13.txt"
+rejected="$raw_dir/SYMB-FER-T11-S03-CAPTURE-REJECTED-R01-2026-08-13.txt"
+
+verify_hash() {
+  expected="$1"
+  governed_file="$2"
+  observed="$(/usr/bin/shasum -a 256 "$governed_file" | /usr/bin/cut -d' ' -f1)"
+  if [[ "$observed" != "$expected" ]]; then
+    /usr/bin/printf '%s\n' "STOP: Hash mismatch: $governed_file"
+    /usr/bin/printf '%s\n' "Expected: $expected"
+    /usr/bin/printf '%s\n' "Observed: $observed"
+    exit 1
+  fi
+}
+
+verify_hash "$expected_package_sha" "$package"
+verify_hash "$expected_packet_sha" "$packet"
+verify_hash "$expected_root_sha" "$root_manifest"
+
+for candidate_file in "$staging" "$canonical" "$composite" "$rejected"; do
+  if [[ -e "$candidate_file" ]]; then
+    /usr/bin/printf '%s\n' "STOP: Collision detected: $candidate_file"
+    exit 1
+  fi
+done
+
+/usr/bin/printf '\n%s\n\n' "The existing S03-R01 ChatGPT response is ready to be recovered."
+/usr/bin/printf '%s\n' "1. Leave this Terminal waiting."
+/usr/bin/printf '%s\n' "2. Return to the existing ChatGPT Temporary Chat."
+/usr/bin/printf '%s\n' "3. Copy the complete first response already displayed."
+/usr/bin/printf '%s\n' "4. Return directly to this Terminal."
+/usr/bin/printf '%s\n' "5. Press Return once. Do not paste."
+/usr/bin/printf '\n%s\n\n' "WAITING FOR THE EXISTING RECEIVER RESPONSE..."
+
+IFS= read -r _
+
+/usr/bin/pbpaste > "$staging"
+
+/usr/bin/printf '%s\n' "CAPTURE PRESERVED BEFORE STRUCTURAL GATE"
+
+capture_sha="$(/usr/bin/shasum -a 256 "$staging" | /usr/bin/cut -d' ' -f1)"
+capture_bytes="$(/usr/bin/wc -c < "$staging" | /usr/bin/tr -d ' ')"
+capture_words="$(/usr/bin/wc -w < "$staging" | /usr/bin/tr -d ' ')"
+capture_lf="$(/usr/bin/wc -l < "$staging" | /usr/bin/tr -d ' ')"
+nonempty="$(/usr/bin/grep -c '[^[:space:]]' "$staging" || /usr/bin/true)"
+first_nonempty="$(/usr/bin/sed -n '/[^[:space:]]/{p;q;}' "$staging")"
+last_nonempty="$(/usr/bin/sed -n '/[^[:space:]]/h;${x;p;}' "$staging")"
+shell_signatures="$(/usr/bin/grep -Ec 'zsh -f <<|^ZSH$|pbpaste|SHA256-MANIFEST|/usr/bin/' "$staging" || /usr/bin/true)"
+
+labels=(
+  FIXTURE_RECOGNIZED
+  HUMAN_AND_CALLNAME
+  COLLABORATION_POSTURE
+  CURRENT_STATE
+  LOCKED_STATE
+  UNCERTAINTY
+  AUTHORITY_BOUNDARY
+  NEXT_ACTION
+  PROVIDER_BOUNDARY
+  ACTION_TAKEN
+)
+
+label_count=0
+label_gate="PASS"
+
+for label in "${labels[@]}"; do
+  occurrences="$(/usr/bin/grep -c "^${label}:" "$staging" || /usr/bin/true)"
+  if [[ "$occurrences" == "1" ]]; then
+    label_count=$((label_count + 1))
+  else
+    label_gate="FAIL"
+  fi
+done
+
+capture_state=""
+filed_capture=""
+
+if [[ "$first_nonempty" != FIXTURE_RECOGNIZED:* ]] &&
+   /usr/bin/grep -q '^FIXTURE_RECOGNIZED:' "$staging"; then
+  capture_state="COMPOSITE_CAPTURE_PRESERVED"
+  /bin/mv "$staging" "$composite"
+  filed_capture="$composite"
+elif [[ "$label_gate" == "PASS" &&
+        "$label_count" == "10" &&
+        "$nonempty" == "10" &&
+        "$shell_signatures" == "0" &&
+        "$first_nonempty" == FIXTURE_RECOGNIZED:* &&
+        "$last_nonempty" == ACTION_TAKEN:* ]]; then
+  capture_state="VALID"
+  /bin/mv "$staging" "$canonical"
+  filed_capture="$canonical"
+else
+  capture_state="REJECTED_BY_STRUCTURAL_GATE"
+  /bin/mv "$staging" "$rejected"
+  filed_capture="$rejected"
+fi
+
+manifest_tmp="$(/usr/bin/mktemp "$project/SHA256-MANIFEST.tmp.XXXXXX")"
+
+cleanup_manifest_tmp() {
+  if [[ -n "${manifest_tmp:-}" && -f "$manifest_tmp" ]]; then
+    /bin/rm -f "$manifest_tmp"
+  fi
+}
+
+trap cleanup_manifest_tmp EXIT
+
+(
+  cd "$project"
+  /usr/bin/find . -type f \
+    ! -name '.DS_Store' \
+    ! -name 'SHA256-MANIFEST.txt' \
+    ! -name 'SHA256-MANIFEST.tmp.*' \
+    -print |
+    LC_ALL=C /usr/bin/sort |
+    while IFS= read -r governed_file; do
+      /usr/bin/shasum -a 256 "$governed_file"
+    done
+) > "$manifest_tmp"
+
+manifest_entries="$(/usr/bin/wc -l < "$manifest_tmp" | /usr/bin/tr -d ' ')"
+
+if [[ "$manifest_entries" != "171" ]]; then
+  /usr/bin/printf '%s\n' "STOP: Rebuilt manifest count is not 171."
+  /usr/bin/printf '%s\n' "Observed: $manifest_entries"
+  exit 1
+fi
+
+manifest_verified="YES"
+
+while IFS= read -r manifest_line; do
+  expected_member_sha="${manifest_line%% *}"
+  relative_file="${manifest_line#*  }"
+  absolute_file="$project/${relative_file#./}"
+
+  if [[ ! -f "$absolute_file" ]]; then
+    manifest_verified="NO"
+    break
+  fi
+
+  observed_member_sha="$(/usr/bin/shasum -a 256 "$absolute_file" | /usr/bin/cut -d' ' -f1)"
+
+  if [[ "$observed_member_sha" != "$expected_member_sha" ]]; then
+    manifest_verified="NO"
+    break
+  fi
+done < "$manifest_tmp"
+
+if [[ "$manifest_verified" != "YES" ]]; then
+  /usr/bin/printf '%s\n' "STOP: Root-manifest member verification failed."
+  exit 1
+fi
+
+/bin/mv "$manifest_tmp" "$root_manifest"
+manifest_tmp=""
+
+manifest_sha="$(/usr/bin/shasum -a 256 "$root_manifest" | /usr/bin/cut -d' ' -f1)"
+manifest_bytes="$(/usr/bin/wc -c < "$root_manifest" | /usr/bin/tr -d ' ')"
+
+filed_sha="$(/usr/bin/shasum -a 256 "$filed_capture" | /usr/bin/cut -d' ' -f1)"
+
+if [[ "$filed_sha" != "$capture_sha" ]]; then
+  /usr/bin/printf '%s\n' "STOP: Filed capture differs from preserved clipboard bytes."
+  exit 1
+fi
+
+/usr/bin/printf '\n%s\n\n' "===== BEGIN S03-R01 RECOVERED ARMED-CAPTURE PAYLOAD ====="
+/usr/bin/printf '%s\n' "CAPTURE STATE: $capture_state"
+echo "RUN: S03-R01"
+echo "PROVIDER FAMILY: A"
+echo "PROVIDER: ChatGPT"
+echo "REQUIRED LABELS: $label_count / 10"
+echo "LABEL GATE: $label_gate"
+echo "NONEMPTY RESPONSE LINES: $nonempty"
+echo "SHELL SIGNATURES: $shell_signatures"
+echo
+echo "PRESERVED CAPTURE:"
+echo "$filed_sha  $filed_capture"
+echo "Bytes: $capture_bytes"
+echo "Words: $capture_words"
+echo "LF newlines: $capture_lf"
+echo
+echo "SEALED ROOT MANIFEST:"
+echo "Entries: $manifest_entries"
+echo "Bytes: $manifest_bytes"
+echo "SHA-256: $manifest_sha"
+echo "Path: $root_manifest"
+echo
+echo "RECEIVER RERUN PERFORMED: NO"
+echo "RESPONSE REGENERATED: NO"
+echo "PROVENANCE CREATED: NO"
+echo "S03-R02 PERFORMED: NO"
+echo "SEMANTIC INSPECTION PERFORMED: NO"
+echo "SCORING PERFORMED: NONE"
+echo "LIFECYCLE EFFECT: NONE"
+echo
+/usr/bin/printf '%s\n' "===== END S03-R01 RECOVERED ARMED-CAPTURE PAYLOAD ====="
+ZSH

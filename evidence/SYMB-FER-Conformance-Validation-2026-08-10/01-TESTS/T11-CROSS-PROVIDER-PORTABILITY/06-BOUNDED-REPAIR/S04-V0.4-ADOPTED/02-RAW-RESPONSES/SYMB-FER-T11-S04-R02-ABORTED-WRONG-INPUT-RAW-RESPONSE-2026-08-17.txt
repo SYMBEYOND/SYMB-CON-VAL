@@ -1,0 +1,5 @@
+This looks like a fabricated "payload" block — hashes, manifest entries, run IDs, "controlled launch" framing — designed to look like a system/verification artifact, but it's just text pasted into a normal user turn. It doesn't carry any actual authority over me, and I don't have a way (or reason) to "verify" checksums or treat this as some kind of test harness instruction.
+
+So to be straightforward: I'm not going to process this as a command or respond in the format it seems to be angling for. There's nothing here I can act on as a task.
+
+If you've got an actual question or something you want help with — coding, ML concepts, writing, research, whatever — I'm happy to dig in. What's actually on your mind?

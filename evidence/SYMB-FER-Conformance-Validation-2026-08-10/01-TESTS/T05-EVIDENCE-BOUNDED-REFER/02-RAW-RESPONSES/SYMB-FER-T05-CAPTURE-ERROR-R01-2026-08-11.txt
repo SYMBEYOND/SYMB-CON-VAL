@@ -1,0 +1,40 @@
+capture_t05_r01() {
+    root="$HOME/Desktop/SYMB-FER-Conformance-Validation-2026-08-10"
+    rawdir="$root/01-TESTS/T05-EVIDENCE-BOUNDED-REFER/02-RAW-RESPONSES"
+    raw="$rawdir/SYMB-FER-T05-RAW-RESPONSE-R01-2026-08-11.txt"
+
+    mkdir -p "$rawdir"
+
+    if [ -e "$raw" ]; then
+        echo "STOP: R01 raw-response file already exists."
+        return 1
+    fi
+
+    pbpaste > "$raw"
+
+    if [ ! -s "$raw" ]; then
+        echo "STOP: Clipboard capture was empty."
+        return 1
+    fi
+
+    find "$root" -type f ! -name 'SHA256-MANIFEST.txt' -print0 |
+    while IFS= read -r -d '' file; do
+        shasum -a 256 "$file"
+    done | sort -k 2 > "$root/SHA256-MANIFEST.txt"
+
+    echo "R01 SAVED CONTENT:"
+    sed -n '1,40p' "$raw"
+
+    echo
+    echo "R01 MEASUREMENTS:"
+    wc -l -w -c "$raw"
+    shasum -a 256 "$raw"
+
+    echo
+    echo "UPDATED ROOT MANIFEST:"
+    wc -l -w -c "$root/SHA256-MANIFEST.txt"
+    shasum -a 256 "$root/SHA256-MANIFEST.txt"
+}
+
+capture_t05_r01
+unset -f capture_t05_r01
