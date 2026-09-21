@@ -12,6 +12,17 @@ The initial evidence collection is:
 - Tests T01 through T11
 - Control records, raw receiver evidence, provenance, scoring derivatives, incident records, manifests, and final dispositions
 
+## Using an AI Assistant?
+
+Start with [`REPO_BOOT.md`](REPO_BOOT.md), a quick orientation for any LLM (Claude, ChatGPT, or other) on what this repo is, how it works, and how to collaborate with it effectively.
+
+## What This Repository Contains
+
+| File / Folder | Purpose |
+|---|---|
+| `evidence/` | The governed evidence archive itself |
+| `ARCHIVE-SHA256.txt` | Integrity manifest for the archive |
+
 ## Preservation policy
 
 - Imported governed evidence is preserved without silent rewriting.
