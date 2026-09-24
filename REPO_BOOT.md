@@ -30,15 +30,15 @@ Important distinctions and boundaries:
 Engine: `1.0.0-rc1`
 Configuration schema: `1`
 Managed-output schema: `1`
-Branch: `feat/add-repo-boot-engine`
-Meaningful source commit: `52848b60a4012805300bfed1d996199b29be3f3b`
-Working tree dirty: `YES`
+Branch: `main`
+Meaningful source commit: `e1b411dc3f4e16d372128fb66d49db6400299748`
+Working tree dirty: `NO`
 
 ### Human-approved repository context
 
-Purpose: Repository state and orientation management
-Audience: Builders, maintainers, and AI collaborators
-Status: Production
+Purpose: Preserve governed testing evidence for SYMB-FER conformance, validation, methodology findings, provenance, incidents, and final dispositions without turning archived evidence into living token state.
+Audience: Evidence maintainers, reviewers, researchers, auditors, and human or AI collaborators examining SYMB-FER validation history.
+Status: Private governed evidence archive; the initial T01-T11 collection is preserved as historical evidence and is separate from the current living SYMB-FER implementation.
 
 ### Authority and uncertainty
 
