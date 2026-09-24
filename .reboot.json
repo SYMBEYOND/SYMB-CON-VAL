@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "repository": {
-    "purpose": "Repository state and orientation management",
-    "audience": "Builders, maintainers, and AI collaborators",
-    "status": "Production"
+    "purpose": "Preserve governed testing evidence for SYMB-FER conformance, validation, methodology findings, provenance, incidents, and final dispositions without turning archived evidence into living token state.",
+    "audience": "Evidence maintainers, reviewers, researchers, auditors, and human or AI collaborators examining SYMB-FER validation history.",
+    "status": "Private governed evidence archive; the initial T01-T11 collection is preserved as historical evidence and is separate from the current living SYMB-FER implementation."
   },
   "orientation": {
     "important_files": [],
